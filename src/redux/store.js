@@ -2,10 +2,20 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunks from 'redux-thunk';
 
 import {
-  getUsersThunk
+  //1//
+  getUsersThunk,
+  //2//
+  getProductsThunk,
+  getOfferingsThunk,
+  getCompaniesThunk
 } from './thunks.js';
 import {
-  getUsers
+  //1//
+  getUsers,
+  //2//
+  getProducts,
+  getOfferings,
+  getCompanies
 } from './actions.js';
 import { reducer } from './reducer.js'
 
@@ -19,6 +29,14 @@ const store = createStore(
 
 export default store;
 export {
+  //1//
   getUsers,
-  getUsersThunk
+  getUsersThunk,
+  //2//
+  getProducts,
+  getProductsThunk,
+  getOfferings,
+  getOfferingsThunk,
+  getCompanies,
+  getCompaniesThunk
 }

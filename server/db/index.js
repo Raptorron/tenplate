@@ -1,23 +1,28 @@
 const db = require('./db');
 
 const User = require('./models/User');
+const Product = require("./models/Product");
+const Company = require("./models/Company");
+const Offering = require("./models/Offering");
 
 const syncAndSeed = require('./syncAndSeed');
 
 // Associations go here
-// Order.belongsTo(User);
-// User.hasMany(Order);
 
-// LineItem.belongsTo(Order);
-// Order.hasMany(LineItem);
+////////////////////////////////** 2 **////////////////////
 
-// LineItem.belongsTo(Product);
-// Product.hasMany(LineItem);
+Offering.belongsTo(Product);
+Product.hasMany(Offering);
 
+Offering.belongsTo(Company);
+Company.hasMany(Offering);
 
 
 module.exports = {
   syncAndSeed,
   db,
   User,
+  Product,
+  Company,
+  Offering
 };

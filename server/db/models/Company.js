@@ -2,9 +2,10 @@ const Sequelize = require('sequelize');
 const { UUID, UUIDV4, STRING } = Sequelize;
 const db = require('../db');
 
-///////////////////////////** 1 **///////////////////////////////////
+////////////////////////////////** 2 **////////////////////
 
-const User = db.define('user', {
+
+const Company = db.define('company', {
   id: {
     primaryKey: true,
     type: UUID,
@@ -12,8 +13,9 @@ const User = db.define('user', {
   },
   name: {
     type: STRING,
+    unique: true,
     allowNull: false
-  },
+  }
 });
 
-module.exports = User;
+module.exports = Company;
