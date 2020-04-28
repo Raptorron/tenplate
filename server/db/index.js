@@ -21,8 +21,10 @@ Company.hasMany(Offering);
 module.exports = {
   syncAndSeed,
   db,
-  User,
-  Product,
-  Company,
-  Offering
+  models: {
+    User,
+    Product,
+    Company,
+    Offering
+  }
 };

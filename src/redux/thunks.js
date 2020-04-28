@@ -21,7 +21,6 @@ const getUsersThunk = () => {
 /////////////////////////////** 2 **/////////////////////////////////////////
 
 const getProductsThunk = () => {
-
   return async (dispatch)=>{
     const response = (await axios.get('/api/products')).data
     dispatch(getProducts(response))
