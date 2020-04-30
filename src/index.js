@@ -1,10 +1,10 @@
 import { render } from 'react-dom';
 import React, { Component } from 'react';
-import { HashRouter, Route, Redirect } from 'react-router-dom';
+import { HashRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { Provider, connect } from 'react-redux';
 
 
-import store, {getUsersThunk, getProductsThunk, getOfferingsThunk, getCompaniesThunk, getChefsThunk, getRecipesThunk} from './redux/store';
+import store, {getUsersThunk, getProductsThunk, getOfferingsThunk, getCompaniesThunk, getChefsThunk, getRecipesThunk, attemptSession} from './redux/store';
 
 import Nav from './Components/Nav';
 import Home from './Components/Home';
@@ -19,6 +19,8 @@ import Chefs from './Components/Chefs';
 import SingleChef from './Components/SingleChef';
 import SingleRecipe from './Components/SingleRecipe';
 
+import Login from './Components/Login';
+import Loggingin from './Components/Loggingin';
 
 class _App extends Component{
   async componentDidMount(){
@@ -31,6 +33,8 @@ class _App extends Component{
     //3//
     this.props.getChefs();
     this.props.getRecipes();
+    //4//
+    this.props.attemptSession();
   }
   render(){
     return (
@@ -45,6 +49,15 @@ class _App extends Component{
         <Route path='/recipes' component={Recipes} exact />
         <Route path='/chefs/:id' component={SingleChef} />
         <Route path='/recipes/:id' component={SingleRecipe} />
+        {/* {
+          loggedIn && (<Route path='/loggingin' component= { Loggingin } exact/>)
+        }
+        {
+          !loggedIn && (<Route path='/login' component= { Login } exact/>)
+        }
+        {
+          loggedIn && <Redirect to='/login' />
+        } */}
         <Redirect path='/' exact />
       </HashRouter>
     )
@@ -53,7 +66,7 @@ class _App extends Component{
 
 const App = connect(({ auth })=> {
   return {
-    loggedIn: !!auth.id
+    auth
   };
 }, (dispatch)=> {
   return {
@@ -66,6 +79,8 @@ const App = connect(({ auth })=> {
     //3//
     getChefs: ()=> dispatch(getChefsThunk()),
     getRecipes: ()=> dispatch(getRecipesThunk()),
+    //4//
+    attemptSession: ()=> dispatch(attemptSession)
   }
 })(_App)
 
