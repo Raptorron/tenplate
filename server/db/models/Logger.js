@@ -4,21 +4,21 @@ const db = require('../db');
 
 ///////////////////////////** 1 **///////////////////////////////////
 
-const User = db.define('user', {
+const Logger = db.define('logger', {
   id: {
     primaryKey: true,
     type: UUID,
     defaultValue: UUIDV4
   },
-  name: {
+  loggerName: {
     type: STRING,
     allowNull: false
   },
   email: {
     type: STRING,
     allowNull: false,
-    unique: true,
     validate: {
+      notEmpty: true,
       isEmail: true
     }
   },
@@ -28,4 +28,4 @@ const User = db.define('user', {
   }
 });
 
-module.exports = User;
+module.exports = Logger;

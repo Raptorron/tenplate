@@ -7,7 +7,22 @@ import {
   //2//
   getProductsThunk,
   getOfferingsThunk,
-  getCompaniesThunk
+  getCompaniesThunk,
+  //3//
+  getChefsThunk,
+  createChefThunk,
+  deleteChefThunk,
+  updateChefsThunk,
+  addChefScoreThunk,
+  subChefScoreThunk,
+  getRecipesThunk,
+  createRecipeThunk,
+  deleteRecipeThunk,
+  updateRecipesThunk,
+  //4//
+  attemptSession,
+  attemptLogin,
+  attemptLogout
 } from './thunks.js';
 import {
   //1//
@@ -15,9 +30,20 @@ import {
   //2//
   getProducts,
   getOfferings,
-  getCompanies
+  getCompanies,
+  //3//
+  getChefs,
+  createChefs,
+  deleteChefs,
+  updateChefs,
+  getRecipes,
+  createRecipes,
+  deleteRecipes,
+  updateRecipes
 } from './actions.js';
-import { reducer } from './reducer.js'
+import {
+  reducer
+} from './reducer.js'
 
 
 const store = createStore(
@@ -38,5 +64,27 @@ export {
   getOfferings,
   getOfferingsThunk,
   getCompanies,
-  getCompaniesThunk
+  getCompaniesThunk,
+  //3//
+  getChefs,
+  getChefsThunk,
+  createChefs,
+  createChefThunk,
+  deleteChefs,
+  deleteChefThunk,
+  updateChefs,
+  updateChefsThunk,
+  addChefScoreThunk,
+  subChefScoreThunk,
+  getRecipes,
+  getRecipesThunk,
+  createRecipes,
+  createRecipeThunk,
+  deleteRecipes,
+  deleteRecipeThunk,
+  updateRecipes,
+  updateRecipesThunk,
+  attemptSession,
+  attemptLogin,
+  attemptLogout
 }

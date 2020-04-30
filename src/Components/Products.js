@@ -25,7 +25,7 @@ const _Products = ({products, offerings, companies}) => {
               </li>)
             }
           </ul>
-              {/* <div>
+              <div>
       <ul>
         {
           products.map( product => <li key={product.id}>
@@ -33,7 +33,7 @@ const _Products = ({products, offerings, companies}) => {
           </li>)
         }
       </ul>
-    </div> */}
+    </div>
     </div>
   )
 }

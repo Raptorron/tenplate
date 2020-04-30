@@ -9,6 +9,10 @@ const _Users = ({users}) => {
         {
           users.map( user => <li key={user.id}>
             {user.name}
+            <br/>
+            {user.email}
+            <br/>
+            {user.password}
           </li>)
         }
       </ul>
